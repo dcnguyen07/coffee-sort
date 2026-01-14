@@ -88,7 +88,7 @@ public class BoosterButton : MonoBehaviour
         GameManager.Instance.SpendBooster(1, currentType);
         StartCoroutine(GameManager.Instance.boardManager.ProcessCupQueue());
         UpdateBoosterState();
-        //Debug.Log("Booster Used!");
+        Debug.Log("Booster Used!");
     }
 
     /// <summary>

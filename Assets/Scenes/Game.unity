@@ -1576,7 +1576,9 @@ MonoBehaviour:
   iOSUnityRWAdUnitId: 
   adUnityRWUnitId: 
   testMode: 0
+  unityGameId: 
   currentAdsType: 0
+  isShowingAppOpenAd: 0
 --- !u!1001 &446544008
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2792,26 +2794,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvasGroup: {fileID: 850834852}
-  tabStore:
-    tabName: Store
-    panel: {fileID: 224601981289358543}
-    btnHandler: {fileID: 114897931822429323}
-    icon: {fileID: 224608633447046636}
-    text: {fileID: 114618925982787629}
-  tabHome:
-    tabName: Home
-    panel: {fileID: 224905929766975428}
-    btnHandler: {fileID: 114037170333260862}
-    icon: {fileID: 224053049644580650}
-    text: {fileID: 114341059603529147}
-  tabRank:
-    tabName: Rank
-    panel: {fileID: 224247840585976866}
-    btnHandler: {fileID: 114852634812959998}
-    icon: {fileID: 224680441631360131}
-    text: {fileID: 114775141813159281}
   tabBg: {fileID: 224918361446720472}
-  contentPanel: {fileID: 224201192783167638}
   levelText: {fileID: 114745370060958212}
   playButton: {fileID: 114945140352481635}
   btnSetting: {fileID: 114495689302281989}
@@ -3588,22 +3571,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uiGame: {fileID: 1535044817}
-  uiHome: {fileID: 850834851}
-  uiShop: {fileID: 1481445115}
-  uiShopTab: {fileID: 2208843207431620881}
-  uiPauseDialog: {fileID: 0}
-  uiConfirmDialog: {fileID: 0}
-  uiRewardDialog: {fileID: 0}
-  uiMoreHeartDialog: {fileID: 0}
-  uiSetting: {fileID: 3113979151186671257}
-  uiRevive: {fileID: 2839437185318807193}
   uiGameFail: {fileID: 1693248215858515051}
   uiGameSuccess: {fileID: 4520076214690885343}
-  barHeartManager: {fileID: 1328310849}
-  uiHeartInfo: {fileID: 1710203718}
-  uiLobby: {fileID: 224686849130276451}
-  uiToast: {fileID: 3286527835473461443}
-  uiBuyItem: {fileID: 1480857016}
 --- !u!4 &1205525420
 Transform:
   m_ObjectHideFlags: 0
@@ -4912,6 +4881,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eaceae66c75264264b1ca0b06fe9fc5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canvasGroup: {fileID: 0}
+  originalScale: {x: 0, y: 0, z: 0}
   uiTextTitle: {fileID: 114736848676485474}
   uiTextDesc: {fileID: 114351791844912637}
   uiTextReward1: {fileID: 114099332666032122}
@@ -4926,6 +4897,10 @@ MonoBehaviour:
   uiBtnBuy: {fileID: 114474925581759770}
   uiBtnWatch: {fileID: 114951956877031195}
   uiBtnClose: {fileID: 114324836276305419}
+  boosterAmountCoin: 1
+  boosterAmountVideo: 1
+  boosterPrice: 2000
+  currentBoosterType: 0
 --- !u!1 &1481445113
 GameObject:
   m_ObjectHideFlags: 0
@@ -6056,6 +6031,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 013cec73400b84d7d8088893eb3eb4b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isShock: 0
 --- !u!114 &1710203718
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6068,6 +6044,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ede199f0e7fcd47a7b9cc58f306a3b8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canvasGroup: {fileID: 0}
+  originalScale: {x: 0, y: 0, z: 0}
   uiHeartCount: {fileID: 114633139608808588}
   uiTxtFull: {fileID: 114892254303496246}
   uiTimerObject: {fileID: 1701666952585170}
@@ -11066,7 +11044,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1657513904873947
 GameObject:
   m_ObjectHideFlags: 0
@@ -12064,7 +12042,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1865957909838451
 GameObject:
   m_ObjectHideFlags: 0
@@ -35057,6 +35035,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79b232cbc2ad44a6994eaca0f38a7e11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canvasGroup: {fileID: 0}
+  originalScale: {x: 0, y: 0, z: 0}
   btnPlayByAd: {fileID: 2733317277461189250}
   btnPlayByCoin: {fileID: 2733568919452497537}
   btnClose: {fileID: 2733298436323212834}

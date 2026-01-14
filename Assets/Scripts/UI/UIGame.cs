@@ -42,9 +42,9 @@ public class UIGame : UIPanel
     /// </summary>
     public void InitializeBoosters()
     {
-        btnAddSlot.Initialize(GameManager.Instance.moreSlotsCount, 5);
-        btnOrder.Initialize(GameManager.Instance.orderCount, 10); 
-        btnUndo.Initialize(GameManager.Instance.undoCount, 15); 
+        btnAddSlot.Initialize(GameManager.Instance.moreSlotsCount, 0);
+        btnOrder.Initialize(GameManager.Instance.orderCount, 0); 
+        btnUndo.Initialize(GameManager.Instance.undoCount, 0); 
     }
 
     private void Start()
@@ -75,9 +75,9 @@ public class UIGame : UIPanel
     /// </summary>
     private void OnAddCoin()
     {
-        SoundManager.Instance.PlaySFX(SoundManager.Instance.clickSfx);
-        GameManager.Instance.uiManager.uiShop.Show();
-        GameManager.Instance.uiManager.uiShop.ShowEffect();
+        // SoundManager.Instance.PlaySFX(SoundManager.Instance.clickSfx);
+        // GameManager.Instance.uiManager.uiShop.Show();
+        // GameManager.Instance.uiManager.uiShop.ShowEffect();
     }
 
     /// <summary>
@@ -97,7 +97,7 @@ public class UIGame : UIPanel
         else
         {
             Debug.Log("More Slots");
-            GameManager.Instance.uiManager.uiBuyItem.Show(BoosterButton.BoosterType.Slot);           
+            // GameManager.Instance.uiManager.uiBuyItem.Show(BoosterButton.BoosterType.Slot);           
         }
     }
 
@@ -116,7 +116,7 @@ public class UIGame : UIPanel
         }
         else
         {
-            GameManager.Instance.uiManager.uiBuyItem.Show(BoosterButton.BoosterType.Order);
+            // GameManager.Instance.uiManager.uiBuyItem.Show(BoosterButton.BoosterType.Order);
             Debug.Log("More Slots");
         }
     }
@@ -136,11 +136,11 @@ public class UIGame : UIPanel
         }
         else if(GameManager.Instance.undoCount == 0)
         {
-            GameManager.Instance.uiManager.uiBuyItem.Show(BoosterButton.BoosterType.Undo);
+            // GameManager.Instance.uiManager.uiBuyItem.Show(BoosterButton.BoosterType.Undo);
             Debug.Log("More Slots");
         }
         else{
-             GameManager.Instance.uiManager.uiToast.ShowToast("Can not undo", 1.5f);
+             // GameManager.Instance.uiManager.uiToast.ShowToast("Can not undo", 1.5f);
         }
     }
 
@@ -150,8 +150,8 @@ public class UIGame : UIPanel
     private void OnSetting()
     {
         SoundManager.Instance.PlaySFX(SoundManager.Instance.clickSfx);
-        GameManager.Instance.uiManager.uiSetting.InitUI();
-        GameManager.Instance.uiManager.uiSetting.Show();
+        // GameManager.Instance.uiManager.uiSetting.InitUI();
+        // GameManager.Instance.uiManager.uiSetting.Show();
     }
 
     /// <summary>

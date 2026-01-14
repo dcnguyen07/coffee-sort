@@ -103,7 +103,6 @@ public class UISetting : UIDialog
     private void RemoveAds()
     {
         SoundManager.Instance.PlaySFX(SoundManager.Instance.clickSfx);
-        GameManager.Instance.uiManager.uiShop.BuyIAPPackage(Config.IAPPackageID.NoAds);
     }
 
     /// <summary>
@@ -112,7 +111,6 @@ public class UISetting : UIDialog
     private void RestorePurchase()
     {
         SoundManager.Instance.PlaySFX(SoundManager.Instance.clickSfx);
-        IAPManager.instance.RestorePurchases();
     }
 
     /// <summary>

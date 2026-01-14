@@ -62,11 +62,7 @@ public class GameManager : MonoBehaviour
     }
     private void Start()
     {
-        LoadBoosterCount();
-        LoadCoin(); // Load coin khi khởi động
-        currentState = GameState.InHome;
-        uiManager.uiHome.InitUI();
-        uiManager.uiHome.Show();
+       LoadGame();
     }
     public int GetCurrentLevel()
     {
@@ -130,26 +126,7 @@ public class GameManager : MonoBehaviour
         }
 
     }
-
-    /// <summary>
-    /// Check Slot in main board
-    /// </summary>
-    public void CheckOutOfSpace()
-    {
-        if (!boardManager.HasAvailableSlot())
-        {
-            if (unlockedSlots < 7)
-            {
-                currentState = GameState.OutOfSpace;
-                uiManager.uiRevive.Show();
-            }
-            else
-            {
-                currentState = GameState.GameOver;
-                uiManager.uiGameFail.Show();
-            }
-        }
-    }
+    
 
     /// <summary>
     /// Unlock new slot on 
@@ -478,8 +455,6 @@ public class GameManager : MonoBehaviour
         boardManager.ClearBoard();
         uiManager.uiGame.Hide();
         currentState = GameState.InHome;
-        uiManager.uiHome.InitUI();
-        uiManager.uiHome.Show();
     }
 
     public int GetCoin()

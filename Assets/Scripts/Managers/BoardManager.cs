@@ -329,7 +329,7 @@ public class BoardManager : MonoBehaviour
                 return;
             }
         }
-        GameManager.Instance.uiManager.uiToast.ShowToast("No Slots", 1.5f);
+        // GameManager.Instance.uiManager.uiToast.ShowToast("No Slots", 1.5f);
     }
 
     private void UpdateTrayCoverState(PlaceModel movedTray)
@@ -467,7 +467,6 @@ public class BoardManager : MonoBehaviour
         GameManager.Instance.SaveActionForUndo(new UndoAction(targetSlot.placedTray, cup, targetSlot));
         cup.transform.DOPath(path, 0.2f, PathType.CatmullRom).SetEase(Ease.InOutCubic).OnComplete(() =>
         {
-            VibrationManager.Instance.Vibrate();
             UpdateCupLeftDisplay();
             targetTray.FinalizeCupPlacement(emptyHole, cup);
             targetTray.SortCupsOnTray();
@@ -683,23 +682,6 @@ public class BoardManager : MonoBehaviour
         }
     }
 
-    IEnumerator ShowAdsIE()
-    {
-        yield return new WaitForSeconds(1.0f);
-
-        if (GameManager.Instance.GetCurrentLevel() > 1)
-        {
-            AdsControl.Instance.ShowInterstitialAd();
-        }
-
-    }
-
-    IEnumerator ShowReviveIE()
-    {
-        yield return new WaitForSeconds(1.0f);
-        GameManager.Instance.uiManager.uiRevive.Show();
-    }
-
     /// <summary>
     /// Update available slot count
     /// </summary>
@@ -741,7 +723,6 @@ public class BoardManager : MonoBehaviour
         SoundManager.Instance.PlaySFX(SoundManager.Instance.levelSuccess);
         GameManager.Instance.uiManager.uiGameSuccess.InitUI();
         GameManager.Instance.uiManager.uiGameSuccess.Show();
-        StartCoroutine(ShowAdsIE());
     }
 
     public void RemoveTrayFromActiveList(PlaceModel tray)

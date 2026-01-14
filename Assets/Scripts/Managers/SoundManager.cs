@@ -99,7 +99,6 @@ public class SoundManager : MonoBehaviour
         PlayerPrefs.SetInt("Shock", isOn ? 1 : 0);
         PlayerPrefs.Save();
         SetShock(isOn);
-        VibrationManager.Instance.Refresh();
     }
 
     /// <summary>
