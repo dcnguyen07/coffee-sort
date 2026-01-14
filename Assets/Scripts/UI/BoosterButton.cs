@@ -1,3 +1,4 @@
+using Managers;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -42,8 +43,8 @@ public class BoosterButton : MonoBehaviour
     /// </summary>
     public void UpdateBoosterState()
     {
-        int currentLevel = GameManager.Instance.GetCurrentLevel();
-        boosterCount = GameManager.Instance.GetBoosterCount(currentType);
+        int currentLevel = GameManager.instance.GetCurrentLevel();
+        boosterCount = GameManager.instance.GetBoosterCount(currentType);
         if (currentLevel < unlockLevel)
         {
             // Debug.Log("Lock");
@@ -83,10 +84,10 @@ public class BoosterButton : MonoBehaviour
     public void UseBooster()
     {
         if (currentState != BoosterState.Unlocked) return;
-        boosterCount = GameManager.Instance.GetBoosterCount(currentType);
+        boosterCount = GameManager.instance.GetBoosterCount(currentType);
         boosterCount--;
-        GameManager.Instance.SpendBooster(1, currentType);
-        StartCoroutine(GameManager.Instance.boardManager.ProcessCupQueue());
+        GameManager.instance.SpendBooster(1, currentType);
+        StartCoroutine(GameManager.instance.boardManager.ProcessCupQueue());
         UpdateBoosterState();
         Debug.Log("Booster Used!");
     }
@@ -96,7 +97,7 @@ public class BoosterButton : MonoBehaviour
     /// </summary>
     private void UnlockBooster()
     {
-        if (GameManager.Instance.GetCurrentLevel() >= unlockLevel)
+        if (GameManager.instance.GetCurrentLevel() >= unlockLevel)
         {
             UpdateBoosterState();
         }
@@ -107,8 +108,8 @@ public class BoosterButton : MonoBehaviour
     /// </summary>
     public void AddMoreBooster()
     {
-        GameManager.Instance.MoreBooster(1, currentType);
-        boosterCount = GameManager.Instance.GetBoosterCount(currentType);
+        GameManager.instance.MoreBooster(1, currentType);
+        boosterCount = GameManager.instance.GetBoosterCount(currentType);
         UpdateBoosterState();
 
     }

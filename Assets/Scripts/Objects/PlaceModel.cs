@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
+using Managers;
+using Objects;
 using UnityEngine;
 
 public class PlaceModel : MonoBehaviour
@@ -47,7 +49,7 @@ public class PlaceModel : MonoBehaviour
         }
 
         TrayConfigSO.TrayColor color = (TrayConfigSO.TrayColor)(colorIndex - 1);
-        var config = GameManager.Instance.trayConfigSO;
+        var config = GameManager.instance.trayConfigSo;
 
         var traySprite = config.GetTraySprite(color);
         var placeSprite = config.GetPlaceSprite(color);
@@ -253,10 +255,10 @@ public class PlaceModel : MonoBehaviour
         transform.DOMoveZ(transform.position.z - 1.0f, 0.2f).SetEase(Ease.InOutQuad).OnComplete(() =>
         {
   
-            GameObject boxEffect = Instantiate(GameManager.Instance.gameConfigSO.cardBoardBoxPrefab, transform.position, Quaternion.identity);
+            GameObject boxEffect = Instantiate(GameManager.instance.gameConfigSo.cardBoardBoxPrefab, transform.position, Quaternion.identity);
             boxEffect.transform.position = new Vector3(transform.position.x, transform.position.y - 0.1f, transform.position.z + 0.2f);
 
-            GameManager.Instance.boardManager.RemoveTrayFromActiveList(this);
+            GameManager.instance.boardManager.RemoveTrayFromActiveList(this);
 
             Vector3 scaleFactor = Vector3.one;
             if (cupPositionList.Count == 4) scaleFactor = new Vector3(0.2f, 0.5f, 0.35f);
@@ -283,7 +285,7 @@ public class PlaceModel : MonoBehaviour
     {
         yield return new WaitForSeconds(delay + 0.1f);
         SoundManager.Instance.PlaySFX(SoundManager.Instance.trayFullClip);
-        GameObject confettiEffect = Instantiate(GameManager.Instance.gameConfigSO.confettiPrefab, boxEffect.transform.position, Quaternion.identity);
+        GameObject confettiEffect = Instantiate(GameManager.instance.gameConfigSo.confettiPrefab, boxEffect.transform.position, Quaternion.identity);
         confettiEffect.transform.SetParent(boxEffect.transform); 
         confettiEffect.transform.localPosition += new Vector3(0.0f, 2.5f, 0.0f);
         confettiEffect.transform.localRotation = Quaternion.Euler(0, 0, 0);
@@ -366,7 +368,7 @@ public class PlaceModel : MonoBehaviour
     /// </summary>
     public SpecialElementModel GetSpecialElementParent()
     {
-        foreach (var specialElement in GameManager.Instance.boardManager.specialElements.Values)
+        foreach (var specialElement in GameManager.instance.boardManager.specialElements.Values)
         {
             if (specialElement.ContainsTray(this)) 
             {
@@ -411,12 +413,12 @@ public class PlaceModel : MonoBehaviour
                 if (cup != null)
                 {
                     releasedCups.Add(cup);
-                    cup.transform.SetParent(GameManager.Instance.boardManager.cupPoolingRoot);
+                    cup.transform.SetParent(GameManager.instance.boardManager.cupPoolingRoot);
                     cup.transform.localPosition = Vector3.zero;
                     cup.transform.localScale = Vector3.one;
-                    GameManager.Instance.boardManager.cupInLevelList.Add(cup);
-                    GameManager.Instance.boardManager.remainCupsCount++;
-                    GameManager.Instance.boardManager.removedCupsCount--;
+                    GameManager.instance.boardManager.cupInLevelList.Add(cup);
+                    GameManager.instance.boardManager.remainCupsCount++;
+                    GameManager.instance.boardManager.removedCupsCount--;
                 }
                 filledHoles[i] = false;
             }

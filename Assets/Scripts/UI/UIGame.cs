@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System;
+using Managers;
 
 public class UIGame : UIPanel
 {
@@ -42,18 +43,16 @@ public class UIGame : UIPanel
     /// </summary>
     public void InitializeBoosters()
     {
-        btnAddSlot.Initialize(GameManager.Instance.moreSlotsCount, 0);
-        btnOrder.Initialize(GameManager.Instance.orderCount, 0); 
-        btnUndo.Initialize(GameManager.Instance.undoCount, 0); 
+        btnAddSlot.Initialize(GameManager.instance.moreSlotsCount, 0);
+        btnOrder.Initialize(GameManager.instance.orderCount, 0); 
+        btnUndo.Initialize(GameManager.instance.undoCount, 0); 
     }
 
     private void Start()
     {
-        btnSetting.onClick.AddListener(OnSetting);
         btnAddSlot.btnUse.onClick.AddListener(OnAddSlot);
         btnOrder.btnUse.onClick.AddListener(OnOrderly);
         btnUndo.btnUse.onClick.AddListener(OnUndo);
-        btnAddCoin.onClick.AddListener(OnAddCoin);
     }
 
     /// <summary>
@@ -61,23 +60,13 @@ public class UIGame : UIPanel
     /// </summary>
     public void UpdateUI()
     {
-        txtLevelNormal.text = "Level " + GameManager.Instance.GetCurrentLevel();
-        txtLevelHard.text = "Hard Level " + GameManager.Instance.GetCurrentHardLevel();
+        txtLevelNormal.text = "Level " + GameManager.instance.GetCurrentLevel();
+        txtLevelHard.text = "Hard Level " + GameManager.instance.GetCurrentHardLevel();
 
-        bool isHardMode = GameManager.Instance.IsHardMode();
+        bool isHardMode = GameManager.instance.IsHardMode();
         uiLevelNormal.SetActive(!isHardMode);
         uiLevelHard.SetActive(isHardMode);
         uiHardLevelPanel.SetActive(isHardMode);
-    }
-
-    /// <summary>
-    /// Handle event when adding coin button is pressed
-    /// </summary>
-    private void OnAddCoin()
-    {
-        // SoundManager.Instance.PlaySFX(SoundManager.Instance.clickSfx);
-        // GameManager.Instance.uiManager.uiShop.Show();
-        // GameManager.Instance.uiManager.uiShop.ShowEffect();
     }
 
     /// <summary>
@@ -85,20 +74,9 @@ public class UIGame : UIPanel
     /// </summary>
     private void OnAddSlot()
     {
-
         SoundManager.Instance.PlaySFX(SoundManager.Instance.clickSfx);
-        if (GameManager.Instance.moreSlotsCount > 0)
-        {
-            Debug.Log("Thêm slot mới");
-            GameManager.Instance.AddSlot();
+            GameManager.instance.AddSlot();
             btnAddSlot.UseBooster();
-            UpdateUI();
-        }
-        else
-        {
-            Debug.Log("More Slots");
-            // GameManager.Instance.uiManager.uiBuyItem.Show(BoosterButton.BoosterType.Slot);           
-        }
     }
 
     /// <summary>
@@ -107,18 +85,9 @@ public class UIGame : UIPanel
     private void OnOrderly()
     {
         SoundManager.Instance.PlaySFX(SoundManager.Instance.clickSfx);
-        if (GameManager.Instance.orderCount > 0)
-        {
             Debug.Log("Sắp xếp lại khay ly");
-            GameManager.Instance.SortTrays();
+            GameManager.instance.SortTrays();
             btnOrder.UseBooster();
-            UpdateUI();
-        }
-        else
-        {
-            // GameManager.Instance.uiManager.uiBuyItem.Show(BoosterButton.BoosterType.Order);
-            Debug.Log("More Slots");
-        }
     }
 
     /// <summary>
@@ -127,21 +96,8 @@ public class UIGame : UIPanel
     private void OnUndo()
     {
         SoundManager.Instance.PlaySFX(SoundManager.Instance.clickSfx);
-        if (GameManager.Instance.undoCount > 0 && GameManager.Instance.CanUndo())
-        {
-            //Debug.Log("Hoàn tác nước đi");
-            GameManager.Instance.OnUndo();
+            GameManager.instance.OnUndo();
             btnUndo.UseBooster();
-            UpdateUI();
-        }
-        else if(GameManager.Instance.undoCount == 0)
-        {
-            // GameManager.Instance.uiManager.uiBuyItem.Show(BoosterButton.BoosterType.Undo);
-            Debug.Log("More Slots");
-        }
-        else{
-             // GameManager.Instance.uiManager.uiToast.ShowToast("Can not undo", 1.5f);
-        }
     }
 
     /// <summary>

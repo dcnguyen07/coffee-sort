@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
+using Managers;
 
 public class UIGameSuccess : UIDialog
 {
@@ -11,7 +12,7 @@ public class UIGameSuccess : UIDialog
 
     public void InitUI()
     {
-        uiLevel.text = "Level " + GameManager.Instance.GetCurrentLevel();
+        uiLevel.text = "Level " + GameManager.instance.GetCurrentLevel();
         uiTextReward.text = "+" + rewardCoins.ToString();
     }
 
@@ -30,8 +31,7 @@ public class UIGameSuccess : UIDialog
     private void OnContinueClicked()
     {
         SoundManager.Instance.PlaySFX(SoundManager.Instance.clickSfx);
-        GameManager.Instance.AddCoins(rewardCoins);
-        GameManager.Instance.LoadNextLevel();
+        GameManager.instance.LoadNextLevel();
         Hide();
     }
 }

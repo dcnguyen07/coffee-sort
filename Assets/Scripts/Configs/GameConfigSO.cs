@@ -1,3 +1,4 @@
+using Objects;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "GameConfig", menuName = "Game/Game Config")]

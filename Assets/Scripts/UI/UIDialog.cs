@@ -1,5 +1,6 @@
 using UnityEngine;
 using DG.Tweening;
+using Managers;
 
 public class UIDialog : MonoBehaviour
 {
@@ -30,8 +31,8 @@ public class UIDialog : MonoBehaviour
     /// </summary>
     public virtual void Hide()
     {
-        if (GameManager.Instance.currentState == GameState.InPause)
-            GameManager.Instance.currentState = GameState.Playing;
+        if (GameManager.instance.currentState == GameState.InPause)
+            GameManager.instance.currentState = GameState.Playing;
         HideWithEffect();
     }
 

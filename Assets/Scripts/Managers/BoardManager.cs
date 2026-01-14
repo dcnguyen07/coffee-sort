@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using DG.Tweening;
+using Managers;
+using Objects;
 using UnityEngine;
 using static TrayConfigSO;
 using static Unity.Burst.Intrinsics.X86.Avx;
@@ -73,7 +75,7 @@ public class BoardManager : MonoBehaviour
     /// </summary>
     private void HandleTrayDrag()
     {
-        if (GameManager.Instance.currentState != GameState.Playing)
+        if (GameManager.instance.currentState != GameState.Playing)
             return;
 
         if (Input.GetMouseButtonDown(0))
@@ -135,13 +137,13 @@ public class BoardManager : MonoBehaviour
                 switch (trayData.cupIds.Count)
                 {
                     case 4:
-                        trayPrefab = GameManager.Instance.gameConfigSO.tray4Prefab;
+                        trayPrefab = GameManager.instance.gameConfigSo.tray4Prefab;
                         break;
                     case 6:
-                        trayPrefab = GameManager.Instance.gameConfigSO.tray6Prefab;
+                        trayPrefab = GameManager.instance.gameConfigSo.tray6Prefab;
                         break;
                     case 8:
-                        trayPrefab = GameManager.Instance.gameConfigSO.tray8Prefab;
+                        trayPrefab = GameManager.instance.gameConfigSo.tray8Prefab;
                         break;
                 }
 
@@ -209,7 +211,7 @@ public class BoardManager : MonoBehaviour
     private void GenerateMainBoardSlots()
     {
         boardSlots.Clear();
-        int slotCount = GameManager.Instance.gameConfigSO.mainBoardSlotCount;
+        int slotCount = GameManager.instance.gameConfigSo.mainBoardSlotCount;
 
         float slotSpacing = 1.15f;
         float startX = -(slotCount - 1) * slotSpacing / 2f;
@@ -217,7 +219,7 @@ public class BoardManager : MonoBehaviour
         for (int i = 0; i < slotCount; i++)
         {
             Vector3 spawnPosition = new Vector3(startX + i * slotSpacing, 0, 0);
-            BoardSlot slotInstance = Instantiate(GameManager.Instance.gameConfigSO.boardSlotPrefab, spawnPosition, Quaternion.identity);
+            BoardSlot slotInstance = Instantiate(GameManager.instance.gameConfigSo.boardSlotPrefab, spawnPosition, Quaternion.identity);
             slotInstance.transform.SetParent(deleteAreaParent);
             slotInstance.transform.localPosition = spawnPosition;
             slotInstance.transform.localRotation = Quaternion.Euler(0, 0, 0);
@@ -288,7 +290,7 @@ public class BoardManager : MonoBehaviour
         {
             if (slot.IsAvailable())
             {
-                GameManager.Instance.SaveActionForUndo(new UndoAction(tray, null, slot));
+                GameManager.instance.SaveActionForUndo(new UndoAction(tray, null, slot));
                 if (tray.IsInSpecialElementStack())
                 {
                     SpecialElementModel specialElement = tray.GetSpecialElementParent();
@@ -379,7 +381,7 @@ public class BoardManager : MonoBehaviour
         for (int i = 0; i < currentLevel.cups.Count; i++)
         {
             int colorIndex = currentLevel.cups[i];
-            CupModel newCup = Instantiate(GameManager.Instance.gameConfigSO.cupPrefab);
+            CupModel newCup = Instantiate(GameManager.instance.gameConfigSo.cupPrefab);
             newCup.transform.localRotation = Quaternion.Euler(0, 0, 0);
             newCup.SetCupColor(colorIndex);
             newCup.transform.SetParent(cupPoolingRoot);
@@ -464,7 +466,7 @@ public class BoardManager : MonoBehaviour
         SoundManager.Instance.PlaySFX(SoundManager.Instance.cupJumpClip);
         bool cupAnimationFinished = false;
         remainCupsCount--;
-        GameManager.Instance.SaveActionForUndo(new UndoAction(targetSlot.placedTray, cup, targetSlot));
+        GameManager.instance.SaveActionForUndo(new UndoAction(targetSlot.placedTray, cup, targetSlot));
         cup.transform.DOPath(path, 0.2f, PathType.CatmullRom).SetEase(Ease.InOutCubic).OnComplete(() =>
         {
             UpdateCupLeftDisplay();
@@ -611,7 +613,7 @@ public class BoardManager : MonoBehaviour
 
         UpdateAvailableSlots();
 
-        GameManager.Instance.SetGameState(GameState.Playing);
+        GameManager.instance.SetGameState(GameState.Playing);
     }
 
     private void GenerateSpecialElements()
@@ -621,7 +623,7 @@ public class BoardManager : MonoBehaviour
         foreach (var specialElementData in currentLevel.SpecialElementList)
         {
             Vector3 spawnPosition = new Vector3((specialElementData.PosX - 0.5f * currentLevel.maxCol) * waitingAreaOffset, (specialElementData.PosY - 0.5f * currentLevel.maxRow) * waitingAreaOffset, spawnedTrays[specialElementData.LinkPlateId].trayLayer * 0.1f);
-            SpecialElementModel specialElementModel = Instantiate(GameManager.Instance.gameConfigSO.specialElementPrefab);
+            SpecialElementModel specialElementModel = Instantiate(GameManager.instance.gameConfigSo.specialElementPrefab);
             specialElementModel.transform.SetParent(waitingAreaParent);
             specialElementModel.transform.localRotation = Quaternion.Euler(-90, 0, 0);
             specialElementModel.transform.localPosition = spawnPosition;
@@ -677,8 +679,8 @@ public class BoardManager : MonoBehaviour
         if (GetAvailableSlots() == 0)
         {
             SoundManager.Instance.PlaySFX(SoundManager.Instance.levelFail);
-            GameManager.Instance.SetGameState(GameState.GameOver);
-            GameManager.Instance.uiManager.uiGameFail.Show();
+            GameManager.instance.SetGameState(GameState.GameOver);
+            GameManager.instance.uiManager.uiGameFail.Show();
         }
     }
 
@@ -718,11 +720,11 @@ public class BoardManager : MonoBehaviour
 
     private IEnumerator ShowGameSuccessUIWithDelay()
     {
-        GameManager.Instance.SetGameState(GameState.LevelComplete);
+        GameManager.instance.SetGameState(GameState.LevelComplete);
         yield return new WaitForSeconds(2.5f);
         SoundManager.Instance.PlaySFX(SoundManager.Instance.levelSuccess);
-        GameManager.Instance.uiManager.uiGameSuccess.InitUI();
-        GameManager.Instance.uiManager.uiGameSuccess.Show();
+        GameManager.instance.uiManager.uiGameSuccess.InitUI();
+        GameManager.instance.uiManager.uiGameSuccess.Show();
     }
 
     public void RemoveTrayFromActiveList(PlaceModel tray)
@@ -994,7 +996,7 @@ public class BoardManager : MonoBehaviour
         }
 
         yield return new WaitForSeconds(scaleDuration + (spawnedTrays.Count * delayBetweenTrays));
-        GameManager.Instance.currentState = GameState.Playing;
+        GameManager.instance.currentState = GameState.Playing;
     }
 
 }

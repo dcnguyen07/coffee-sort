@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
 using System.Collections;
+using Managers;
 
 public class UIGameFail : UIDialog
 {
@@ -17,7 +18,7 @@ public class UIGameFail : UIDialog
     private void OnReplay()
     {
         SoundManager.Instance.PlaySFX(SoundManager.Instance.clickSfx);
-        GameManager.Instance.RestartLevel();
+        GameManager.instance.RestartLevel();
         HideWithEffect();
     }
 
@@ -25,8 +26,8 @@ public class UIGameFail : UIDialog
     {
         SoundManager.Instance.PlaySFX(SoundManager.Instance.clickSfx);
         HideWithEffect();
-        GameManager.Instance.boardManager.ClearBoard();
-        GameManager.Instance.uiManager.uiGame.Hide();
+        GameManager.instance.boardManager.ClearBoard();
+        GameManager.instance.uiManager.uiGame.Hide();
         Hide();
     }
 
