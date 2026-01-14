@@ -678,16 +678,8 @@ public class BoardManager : MonoBehaviour
         if (GetAvailableSlots() == 0)
         {
             SoundManager.Instance.PlaySFX(SoundManager.Instance.levelFail);
-            if (unlockedSlots < 7)
-            {
-                GameManager.Instance.SetGameState(GameState.OutOfSpace);
-                StartCoroutine(ShowReviveIE());
-            }
-            else
-            {
-                GameManager.Instance.SetGameState(GameState.GameOver);
-                GameManager.Instance.uiManager.uiGameFail.Show();
-            }
+            GameManager.Instance.SetGameState(GameState.GameOver);
+            GameManager.Instance.uiManager.uiGameFail.Show();
         }
     }
 

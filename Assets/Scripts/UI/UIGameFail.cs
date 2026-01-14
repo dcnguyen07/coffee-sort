@@ -37,7 +37,6 @@ public class UIGameFail : UIDialog
     public override void Show()
     {
         base.Show();
-        StartCoroutine(ShowAdsIE());
     }
 
     IEnumerator ShowAdsIE()
