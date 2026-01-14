@@ -1,0 +1,27 @@
+fileFormatVersion: 2
+guid: 2fed748e012e88149bd3a799854b109a
+timeCreated: 1739741434
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  externalObjects: {}
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Dream Han Sans CN W18
+  - Source Han Sans CN
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 3173725aa5bf6284a81da5fd791d518e, type: 3}
+  customCharacters:
+  fontRenderingMode: 0
+  output:
+    hasEmptyFontData: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData:
+  assetBundleName: fonts
+  assetBundleVariant:

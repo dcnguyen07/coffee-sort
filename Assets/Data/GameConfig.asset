@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb8227ccf76f847889c2c0d1ea504c86, type: 3}
+  m_Name: GameConfig
+  m_EditorClassIdentifier: 
+  tray4Prefab: {fileID: 7366547556288067410, guid: e1da98be1284924438cccf3246f84e2c, type: 3}
+  tray6Prefab: {fileID: 2035461429722788890, guid: ea7e78955e0b6594db3c3075dc72b56c, type: 3}
+  tray8Prefab: {fileID: 1583224506792470178, guid: b35c8a518e6c2e84aac6e3cb274e4eb2, type: 3}
+  boardSlotPrefab: {fileID: 1317557805372406717, guid: 3a03c12eb6d52d640863c9180bb0e2b0, type: 3}
+  mainBoardSlotCount: 7
+  cupPrefab: {fileID: 5662294748969131810, guid: 17b0ea24986f7b149ab040a01ea9d8a0, type: 3}
+  cardBoardBoxPrefab: {fileID: 1530774923915570, guid: c372254237f10e341bafdd3c6f900aa7, type: 3}
+  specialElementPrefab: {fileID: 2857041669390672026, guid: 36f2e9cc6443a704dbb32c77e722ff05, type: 3}
+  confettiPrefab: {fileID: 254790872523733435, guid: 729b64894b182452aa0cd02213ad9856, type: 3}

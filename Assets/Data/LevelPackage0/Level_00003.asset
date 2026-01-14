@@ -1,0 +1,262 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58370de67b9384c2082a217e781ec172, type: 3}
+  m_Name: Level_00003
+  m_EditorClassIdentifier: 
+  level: 3
+  maxRow: 0
+  maxCol: 0
+  layers:
+  - trays:
+    - id: 50
+      resID: 101
+      layer: 1
+      posX: 2
+      posY: 8
+      angle: 0
+      isQuestion: 0
+      cupIds: 02000000020000000200000002000000
+      parentIds: 31000000
+    - id: 51
+      resID: 101
+      layer: 1
+      posX: 6
+      posY: 8
+      angle: 0
+      isQuestion: 0
+      cupIds: 04000000040000000400000004000000
+      parentIds: 2c0000002d000000
+    - id: 52
+      resID: 101
+      layer: 1
+      posX: -6
+      posY: 4
+      angle: 0
+      isQuestion: 0
+      cupIds: 06000000060000000600000006000000
+      parentIds: 2b000000
+    - id: 53
+      resID: 101
+      layer: 1
+      posX: 10
+      posY: -6
+      angle: 0
+      isQuestion: 0
+      cupIds: 06000000060000000600000006000000
+      parentIds: 2f00000036000000
+    - id: 58
+      resID: 103
+      layer: 1
+      posX: 10
+      posY: 6
+      angle: 0
+      isQuestion: 0
+      cupIds: 0200000002000000020000000200000002000000020000000200000002000000
+      parentIds: 2c0000002d000000
+    - id: 59
+      resID: 102
+      layer: 1
+      posX: 10
+      posY: -1
+      angle: 0
+      isQuestion: 0
+      cupIds: 040000000400000004000000040000000400000004000000
+      parentIds: 2f00000030000000
+    - id: 60
+      resID: 103
+      layer: 1
+      posX: -4
+      posY: 8
+      angle: 90
+      isQuestion: 0
+      cupIds: 0400000004000000040000000400000004000000040000000400000004000000
+      parentIds: 2a0000002b000000
+    - id: 61
+      resID: 102
+      layer: 1
+      posX: -6
+      posY: -1
+      angle: 0
+      isQuestion: 0
+      cupIds: 010000000100000001000000010000000100000001000000
+      parentIds: 37000000
+    - id: 62
+      resID: 101
+      layer: 1
+      posX: -6
+      posY: -6
+      angle: 0
+      isQuestion: 0
+      cupIds: 02000000020000000200000002000000
+      parentIds: 3700000038000000
+    - id: 63
+      resID: 102
+      layer: 1
+      posX: -5
+      posY: -10
+      angle: 90
+      isQuestion: 0
+      cupIds: 010000000100000001000000010000000100000001000000
+      parentIds: 38000000
+    - id: 64
+      resID: 102
+      layer: 1
+      posX: 9
+      posY: -10
+      angle: 90
+      isQuestion: 0
+      cupIds: 010000000100000001000000010000000100000001000000
+      parentIds: 36000000
+    - id: 65
+      resID: 103
+      layer: 1
+      posX: 2
+      posY: -10
+      angle: 90
+      isQuestion: 0
+      cupIds: 0600000006000000060000000600000006000000060000000600000006000000
+      parentIds: 360000003800000039000000420000004300000044000000
+  - trays:
+    - id: 42
+      resID: 102
+      layer: 2
+      posX: -3
+      posY: 10
+      angle: 90
+      isQuestion: 0
+      cupIds: 060000000600000006000000060000000600000006000000
+      parentIds: 
+    - id: 43
+      resID: 102
+      layer: 2
+      posX: -4
+      posY: 5
+      angle: 0
+      isQuestion: 0
+      cupIds: 020000000200000002000000020000000200000002000000
+      parentIds: 
+    - id: 44
+      resID: 102
+      layer: 2
+      posX: 8
+      posY: 5
+      angle: 0
+      isQuestion: 0
+      cupIds: 020000000200000002000000020000000200000002000000
+      parentIds: 
+    - id: 45
+      resID: 102
+      layer: 2
+      posX: 7
+      posY: 10
+      angle: 90
+      isQuestion: 0
+      cupIds: 040000000400000004000000040000000400000004000000
+      parentIds: 
+    - id: 47
+      resID: 101
+      layer: 2
+      posX: 8
+      posY: -4
+      angle: 0
+      isQuestion: 0
+      cupIds: 04000000040000000400000004000000
+      parentIds: 
+    - id: 48
+      resID: 101
+      layer: 2
+      posX: 8
+      posY: 0
+      angle: 0
+      isQuestion: 0
+      cupIds: 02000000020000000200000002000000
+      parentIds: 
+    - id: 49
+      resID: 101
+      layer: 2
+      posX: 2
+      posY: 10
+      angle: 0
+      isQuestion: 0
+      cupIds: 02000000020000000200000002000000
+      parentIds: 
+    - id: 54
+      resID: 102
+      layer: 2
+      posX: 7
+      posY: -8
+      angle: 90
+      isQuestion: 0
+      cupIds: 010000000100000001000000010000000100000001000000
+      parentIds: 
+    - id: 55
+      resID: 103
+      layer: 2
+      posX: -4
+      posY: -2
+      angle: 0
+      isQuestion: 0
+      cupIds: 0100000001000000010000000100000001000000010000000100000001000000
+      parentIds: 
+    - id: 56
+      resID: 102
+      layer: 2
+      posX: -3
+      posY: -8
+      angle: 90
+      isQuestion: 0
+      cupIds: 010000000100000001000000010000000100000001000000
+      parentIds: 
+    - id: 57
+      resID: 103
+      layer: 2
+      posX: 2
+      posY: -12
+      angle: 0
+      isQuestion: 0
+      cupIds: 0600000006000000060000000600000006000000060000000600000006000000
+      parentIds: 
+    - id: 66
+      resID: 103
+      layer: 2
+      posX: 2
+      posY: 0
+      angle: 0
+      isQuestion: 0
+      cupIds: 0800000008000000080000000800000008000000080000000800000008000000
+      parentIds: 39000000
+    - id: 67
+      resID: 103
+      layer: 2
+      posX: 2
+      posY: 0
+      angle: 0
+      isQuestion: 0
+      cupIds: 0600000006000000060000000600000006000000060000000600000006000000
+      parentIds: 42000000
+    - id: 68
+      resID: 103
+      layer: 2
+      posX: 2
+      posY: 0
+      angle: 0
+      isQuestion: 0
+      cupIds: 0800000008000000080000000800000008000000080000000800000008000000
+      parentIds: 43000000
+  SpecialElementList:
+  - ID: 1000
+    ResId: 301
+    LinkPlateId: 57
+    LinkPlateIdList: 420000004300000044000000
+    PosX: 2
+    PosY: -1
+  cups: 080000000600000008000000080000000600000006000000060000000800000008000000080000000800000008000000080000000800000008000000060000000600000008000000080000000800000008000000080000000600000006000000020000000200000004000000010000000100000001000000020000000600000006000000060000000200000002000000010000000600000002000000040000000100000004000000060000000200000001000000040000000400000002000000060000000200000001000000020000000200000006000000010000000100000001000000010000000600000002000000010000000400000002000000060000000200000001000000020000000200000006000000040000000400000006000000020000000100000001000000060000000100000002000000010000000200000001000000060000000400000001000000040000000200000001000000060000000400000006000000040000000200000001000000020000000200000001000000040000000600000006000000060000000100000004000000010000000200000002000000020000000400000001000000060000000100000001000000040000000100000002000000060000000400000001000000020000000600000001000000020000000400000002000000020000000100000001000000020000000600000006000000060000000400000001000000060000000200000004000000060000000400000002000000020000000400000001000000040000000600000004000000040000000100000001000000060000000100000004000000020000000600000006000000040000000100000004000000
