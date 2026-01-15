@@ -1,17 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
-using System;
 using Managers;
 
 public class UIGame : UIPanel
 {
-    [Header("Coin UI")]
-    public Text txtCoin;
-    public Button btnAddCoin;
-
     [Header("Level UI")]
     public Text txtLevelNormal;
     public Text txtLevelHard;
@@ -24,11 +16,7 @@ public class UIGame : UIPanel
     public BoosterButton btnAddSlot;
     public BoosterButton btnOrder;
     public BoosterButton btnUndo;
-    public Button btnSetting; 
-
-    [Header("Banner & Ads")]
-    public GameObject bannerAd;
-
+    
     [Header("Slot UI Elements")]
     public Text slotCountText;
 

@@ -260,7 +260,6 @@ namespace Managers
             {
                 cupQueue[i].SetCupColor(shuffledColors[i]);
             }
-            Debug.Log("Queue shuffled!");
         }
 
         private Stack<UndoAction> undoStack = new Stack<UndoAction>();
@@ -318,12 +317,6 @@ namespace Managers
         public bool IsMusicOn() => PlayerPrefs.GetInt("Music", 1) == 1;
         public bool IsShockOn() => PlayerPrefs.GetInt("Shock", 1) == 1;
 
-        public void ReturnToHome()
-        {
-            boardManager.ClearBoard();
-            uiManager.uiGame.Hide();
-            currentState = GameState.InHome;
-        }
         public int GetBoosterCount(BoosterButton.BoosterType currentType)
         {
             if (currentType == BoosterButton.BoosterType.Slot)

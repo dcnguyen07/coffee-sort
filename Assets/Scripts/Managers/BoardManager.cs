@@ -817,14 +817,15 @@ namespace Managers
             {
                 activeTrays.Remove(tray);
             }
+            
+            tray.transform.DOLocalRotate(tray.initRot.eulerAngles, 0.3f).SetEase(Ease.InOutQuad);
 
             tray.transform.DOLocalMove(tray.initPos, 0.3f).SetEase(Ease.InOutQuad).OnComplete(() =>
-            {
+            { 
                 foreach (int childId in tray.childIds)
                 {
                     if (spawnedTrays.ContainsKey(childId))
                     {
-                        tray.transform.localRotation = tray.initRot;
                         tray.currentSlot = null;
                         PlaceModel childTray = spawnedTrays[childId];
                         childTray.parentCount++;
