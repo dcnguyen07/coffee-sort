@@ -1,3 +1,4 @@
+
 using Managers;
 using UnityEngine;
 
@@ -16,7 +17,19 @@ public class CupModel : MonoBehaviour
     public void SetCupColor(int colorIndex)
     {
         this.colorIndex = colorIndex;
+
+        if (cupSpriteRenderer == null)
+        {
+            Debug.LogError("cupSpriteRenderer is null on CupModel");
+            return;
+        }
+
         TrayConfigSO config = GameManager.instance.trayConfigSo;
+        if (config == null)
+        {
+            Debug.LogError("trayConfigSo is null on GameManager");
+            return;
+        }
 
         TrayConfigSO.TrayColor color = (TrayConfigSO.TrayColor)(this.colorIndex - 1);
         var cupSprite = config.GetCupSprite(color);
@@ -24,6 +37,8 @@ public class CupModel : MonoBehaviour
         if (cupSprite != null)
         {
             cupSpriteRenderer.sprite = cupSprite;
+            // Apply configured tint from TrayConfigSO (colorValue)
+            config.ApplyColorToSpriteRenderer(color, cupSpriteRenderer);
         }
         else
         {

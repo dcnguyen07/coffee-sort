@@ -9,6 +9,7 @@ public class PlaceModel : MonoBehaviour
 {
     [SerializeField] private int colorIndex;
     [SerializeField] private SpriteRenderer trayBackground;
+    [SerializeField] private SpriteRenderer traySpiteRenderer;
     [SerializeField] private List<SpriteRenderer> cupPositionList;
 
     public int ColorIndex => colorIndex;
@@ -52,11 +53,17 @@ public class PlaceModel : MonoBehaviour
         var config = GameManager.instance.trayConfigSo;
 
         var traySprite = config.GetTraySprite(color);
+        // if (traySprite != null)
+        // {
+        //     traySpiteRenderer.sprite = traySprite;
+        //     config.ApplyColorToSpriteRenderer(color, trayBackground);
+        // }
         var placeSprite = config.GetPlaceSprite(color);
 
         if (traySprite != null)
         {
             trayBackground.sprite = traySprite;
+            config.ApplyColorToSpriteRenderer(color, trayBackground);
         }
 
         if (placeSprite != null)
