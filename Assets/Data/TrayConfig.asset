@@ -14,47 +14,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trayConfigs:
   - color: 0
-    colorValue: {r: 0, g: 1, b: 0, a: 1}
-    traySprite: {fileID: 7482667652216324306, guid: 2057bcde0a5727142bea5534247a9b70, type: 3}
-    placeSprite: {fileID: -2413806693520163455, guid: 7ed948bf7d26c254c95902343989c962, type: 3}
-    cupSprite: {fileID: -2413806693520163455, guid: 7452980363559ff45bc8f1395bce6c61, type: 3}
+    trayColorValue: {r: 0.3914504, g: 1, b: 0, a: 1}
+    placeColorValue: {r: 0.2708102, g: 0.690566, b: 0, a: 1}
   - color: 1
-    colorValue: {r: 1, g: 0, b: 0, a: 1}
-    traySprite: {fileID: 7482667652216324306, guid: 2057bcde0a5727142bea5534247a9b70, type: 3}
-    placeSprite: {fileID: -2413806693520163455, guid: 7ed948bf7d26c254c95902343989c962, type: 3}
-    cupSprite: {fileID: -2413806693520163455, guid: 7452980363559ff45bc8f1395bce6c61, type: 3}
+    trayColorValue: {r: 1, g: 0, b: 0, a: 1}
+    placeColorValue: {r: 0.82641506, g: 0, b: 0, a: 1}
   - color: 2
-    colorValue: {r: 1, g: 0.6470588, b: 0, a: 1}
-    traySprite: {fileID: 7482667652216324306, guid: 2057bcde0a5727142bea5534247a9b70, type: 3}
-    placeSprite: {fileID: -2413806693520163455, guid: 7ed948bf7d26c254c95902343989c962, type: 3}
-    cupSprite: {fileID: -2413806693520163455, guid: 7452980363559ff45bc8f1395bce6c61, type: 3}
+    trayColorValue: {r: 1, g: 0.42416584, b: 0, a: 1}
+    placeColorValue: {r: 0.82641506, g: 0.35325196, b: 0, a: 1}
   - color: 3
-    colorValue: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
-    traySprite: {fileID: 7482667652216324306, guid: 2057bcde0a5727142bea5534247a9b70, type: 3}
-    placeSprite: {fileID: -2413806693520163455, guid: 7ed948bf7d26c254c95902343989c962, type: 3}
-    cupSprite: {fileID: -2413806693520163455, guid: 7452980363559ff45bc8f1395bce6c61, type: 3}
+    trayColorValue: {r: 1, g: 0.8851007, b: 0, a: 1}
+    placeColorValue: {r: 0.8415094, g: 0.74580836, b: 0, a: 1}
   - color: 4
-    colorValue: {r: 0.5450981, g: 0.2705882, b: 0.07450981, a: 1}
-    traySprite: {fileID: 7482667652216324306, guid: 2057bcde0a5727142bea5534247a9b70, type: 3}
-    placeSprite: {fileID: -2413806693520163455, guid: 7ed948bf7d26c254c95902343989c962, type: 3}
-    cupSprite: {fileID: -2413806693520163455, guid: 7452980363559ff45bc8f1395bce6c61, type: 3}
+    trayColorValue: {r: 0.7207546, g: 0.2859708, b: 0, a: 1}
+    placeColorValue: {r: 0.3962264, g: 0.15719852, b: 0, a: 1}
   - color: 5
-    colorValue: {r: 1, g: 0.4117647, b: 0.7058824, a: 1}
-    traySprite: {fileID: 7482667652216324306, guid: 2057bcde0a5727142bea5534247a9b70, type: 3}
-    placeSprite: {fileID: -2413806693520163455, guid: 7ed948bf7d26c254c95902343989c962, type: 3}
-    cupSprite: {fileID: -2413806693520163455, guid: 7452980363559ff45bc8f1395bce6c61, type: 3}
+    trayColorValue: {r: 1, g: 0, b: 0.7302456, a: 1}
+    placeColorValue: {r: 0.5773585, g: 0, b: 0.42339638, a: 1}
   - color: 6
-    colorValue: {r: 0.627451, g: 0.1254902, b: 0.9411765, a: 1}
-    traySprite: {fileID: 7482667652216324306, guid: 2057bcde0a5727142bea5534247a9b70, type: 3}
-    placeSprite: {fileID: -2413806693520163455, guid: 7ed948bf7d26c254c95902343989c962, type: 3}
-    cupSprite: {fileID: -2413806693520163455, guid: 7452980363559ff45bc8f1395bce6c61, type: 3}
+    trayColorValue: {r: 0.79037905, g: 0, b: 1, a: 1}
+    placeColorValue: {r: 0.53507936, g: 0, b: 0.6754716, a: 1}
   - color: 7
-    colorValue: {r: 0, g: 0, b: 1, a: 1}
-    traySprite: {fileID: 7482667652216324306, guid: 2057bcde0a5727142bea5534247a9b70, type: 3}
-    placeSprite: {fileID: -2413806693520163455, guid: 7ed948bf7d26c254c95902343989c962, type: 3}
-    cupSprite: {fileID: -2413806693520163455, guid: 7452980363559ff45bc8f1395bce6c61, type: 3}
+    trayColorValue: {r: 0, g: 0.5474639, b: 1, a: 1}
+    placeColorValue: {r: 0, g: 0.35427284, b: 0.645283, a: 1}
   - color: 8
-    colorValue: {r: 1, g: 1, b: 1, a: 1}
-    traySprite: {fileID: 7482667652216324306, guid: 2057bcde0a5727142bea5534247a9b70, type: 3}
-    placeSprite: {fileID: -2413806693520163455, guid: 7ed948bf7d26c254c95902343989c962, type: 3}
-    cupSprite: {fileID: -2413806693520163455, guid: 7452980363559ff45bc8f1395bce6c61, type: 3}
+    trayColorValue: {r: 1, g: 1, b: 1, a: 1}
+    placeColorValue: {r: 0.8037735, g: 0.8037735, b: 0.8037735, a: 1}
