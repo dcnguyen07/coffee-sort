@@ -170,7 +170,7 @@ namespace Managers
                     {
                         trayInstance.SetDimmed(true);
                     }
-                    // spawnedTrays[trayData.id] = trayInstance;
+                    spawnedTrays[trayData.id] = trayInstance;
                     animPlaceList.Add(trayInstance);
                     indexInLayer++;
                 }
@@ -195,11 +195,11 @@ namespace Managers
             }
             foreach (var trayData in currentLevel.layers.SelectMany(layer => layer.trays))
             {
-                // if (spawnedTrays.TryGetValue(trayData.id, out PlaceModel trayInstance))
-                // {
-                //     bool isCovered = trayData.parentIds != null && trayData.parentIds.Count > 0;
-                //     trayInstance.UpdateCoverState(isCovered);
-                // }
+                if (spawnedTrays.TryGetValue(trayData.id, out PlaceModel trayInstance))
+                {
+                    bool isCovered = trayData.parentIds != null && trayData.parentIds.Count > 0;
+                    trayInstance.UpdateCoverState(isCovered);
+                }
             }
         }
 

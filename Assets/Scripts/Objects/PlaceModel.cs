@@ -9,7 +9,6 @@ public class PlaceModel : MonoBehaviour
 {
     [SerializeField] private int colorIndex;
     [SerializeField] private SpriteRenderer trayBackground;
-    [SerializeField] private SpriteRenderer traySpiteRenderer;
     [SerializeField] private List<SpriteRenderer> cupPositionList;
 
     public int ColorIndex => colorIndex;
@@ -43,39 +42,37 @@ public class PlaceModel : MonoBehaviour
     /// </summary>
     public void UpdateTrayVisual(int colorIndex)
     {
-        if (!System.Enum.IsDefined(typeof(TrayConfigSO.TrayColor), (colorIndex - 1)))
-        {
-            Debug.LogError($"Color index {colorIndex} không hợp lệ! / Invalid color index {colorIndex}!");
-            return;
-        }
+        this.colorIndex = colorIndex;
+
+        var config = GameManager.instance.trayConfigSo;
+        if (config == null) return;
 
         TrayConfigSO.TrayColor color = (TrayConfigSO.TrayColor)(colorIndex - 1);
-        var config = GameManager.instance.trayConfigSo;
 
         var traySprite = config.GetTraySprite(color);
-        // if (traySprite != null)
-        // {
-        //     traySpiteRenderer.sprite = traySprite;
-        //     config.ApplyColorToSpriteRenderer(color, trayBackground);
-        // }
         var placeSprite = config.GetPlaceSprite(color);
+        
 
-        if (traySprite != null)
+        if (trayBackground != null)
         {
+            
             trayBackground.sprite = traySprite;
             config.ApplyColorToSpriteRenderer(color, trayBackground);
         }
 
         if (placeSprite != null)
         {
-            foreach (var cup in cupPositionList)
+            foreach (var cupPos in cupPositionList)
             {
-                cup.sprite = placeSprite;
+                if (cupPos != null)
+                {
+                    cupPos.sprite = config.GetPlaceSprite(color);
+                    cupPos.color = Color.white; 
+                }
             }
         }
-
-        this.colorIndex = colorIndex;
     }
+
 
     public void UpdateSortingOrder(int layer, int indexInLayer)
     {
@@ -121,9 +118,7 @@ public class PlaceModel : MonoBehaviour
         Color cupColor = cupPositionList[0].color;
 
         float dimFactor = isDimmed ? 0.6f : 1f;
-
-        trayBackground.color = new Color(trayColor.r * dimFactor, trayColor.g * dimFactor, trayColor.b * dimFactor, trayColor.a);
-
+        
         foreach (var cup in cupPositionList)
         {
             cup.color = new Color(cupColor.r * dimFactor, cupColor.g * dimFactor, cupColor.b * dimFactor, cupColor.a);
@@ -133,12 +128,10 @@ public class PlaceModel : MonoBehaviour
     public void UpdateCoverState(bool covered)
     {
         isCovered = covered;
-        Color newColor = covered ? new Color(0.5f, 0.5f, 0.5f, 1f) : Color.white; 
-        trayBackground.color = newColor;
-
+        
         foreach (var cupPos in cupPositionList)
         {
-            cupPos.color = newColor;
+            cupPos.color = new Color();
         }
     }
 
@@ -276,10 +269,7 @@ public class PlaceModel : MonoBehaviour
 
             Animator animator = boxEffect.GetComponent<Animator>();
             animator.Play("Scene");
-
             float animationTime = animator.GetCurrentAnimatorStateInfo(0).length;
-
-
             StartCoroutine(SpawnConfettiEffect(boxEffect, animationTime));
 
         });

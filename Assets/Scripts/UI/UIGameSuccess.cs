@@ -13,7 +13,6 @@ public class UIGameSuccess : UIDialog
     public void InitUI()
     {
         uiLevel.text = "Level " + GameManager.instance.GetCurrentLevel();
-        uiTextReward.text = "+" + rewardCoins.ToString();
     }
 
     private void Start()
@@ -24,8 +23,6 @@ public class UIGameSuccess : UIDialog
     public void ShowSuccess(int level)
     {
         uiLevel.text = "Level " + level;
-        uiTextReward.text = "+" + rewardCoins.ToString();
-
     }
 
     private void OnContinueClicked()
