@@ -1,6 +1,6 @@
 using UnityEngine;
-using DG.Tweening;
 using Managers;
+using Components;
 
 public class UIDialog : MonoBehaviour
 {
@@ -44,10 +44,8 @@ public class UIDialog : MonoBehaviour
         gameObject.SetActive(true);
         canvasGroup.blocksRaycasts = true;
         canvasGroup.interactable = true;
-        canvasGroup.alpha = 0;
+        canvasGroup.alpha = 1;
         transform.localScale = Vector3.zero;
-
-        canvasGroup.DOFade(1f, 0.3f);
         transform.DOScale(originalScale, 0.3f).SetEase(Ease.OutBack);
     }
 
@@ -58,7 +56,7 @@ public class UIDialog : MonoBehaviour
     {
         canvasGroup.blocksRaycasts = false;
         canvasGroup.interactable = false;
-        canvasGroup.DOFade(0, 0.2f);
+        canvasGroup.alpha = 0;
         transform.DOScale(Vector3.zero, 0.2f).SetEase(Ease.InBack).OnComplete(() => gameObject.SetActive(false));
     }
 }

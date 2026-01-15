@@ -1,3 +1,5 @@
+using Objects;
+namespace Objects {
 public class UndoAction
 {
     public PlaceModel tray;
@@ -10,4 +12,5 @@ public class UndoAction
         this.cup = cup;
         this.previousSlot = previousSlot;
     }
+}
 }

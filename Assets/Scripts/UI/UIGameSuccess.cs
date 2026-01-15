@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.UI;
-using DG.Tweening;
 using Managers;
 
 public class UIGameSuccess : UIDialog

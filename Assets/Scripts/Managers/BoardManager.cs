@@ -1,9 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using DG.Tweening;
 using Objects;
 using UnityEngine;
+using Components;
 
 namespace Managers
 {
@@ -961,3 +961,4 @@ namespace Managers
 
     }
 }
+
