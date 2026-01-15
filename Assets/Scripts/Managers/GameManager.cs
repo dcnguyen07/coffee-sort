@@ -179,21 +179,18 @@ namespace Managers
             {
                 moreSlotsCount += amount;
                 PlayerPrefs.SetInt("MoreSlots", moreSlotsCount);
-                GameManager.instance.uiManager.uiGame.btnAddSlot.UpdateBoosterState();
             }
 
             else if (type == BoosterButton.BoosterType.Order)
             {
                 orderCount += amount;
                 PlayerPrefs.SetInt("Order", orderCount);
-                GameManager.instance.uiManager.uiGame.btnOrder.UpdateBoosterState();
             }
 
             else if (type == BoosterButton.BoosterType.Undo)
             {
                 undoCount += amount;
                 PlayerPrefs.SetInt("Undo", undoCount);
-                GameManager.instance.uiManager.uiGame.btnUndo.UpdateBoosterState();
             }
         }
 

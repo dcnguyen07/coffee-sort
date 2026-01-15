@@ -49,12 +49,8 @@ public class UIGame : UIPanel
     public void UpdateUI()
     {
         txtLevelNormal.text = "Level " + GameManager.instance.GetCurrentLevel();
-        txtLevelHard.text = "Hard Level " + GameManager.instance.GetCurrentHardLevel();
-
         bool isHardMode = GameManager.instance.IsHardMode();
         uiLevelNormal.SetActive(!isHardMode);
-        uiLevelHard.SetActive(isHardMode);
-        uiHardLevelPanel.SetActive(isHardMode);
     }
 
     /// <summary>

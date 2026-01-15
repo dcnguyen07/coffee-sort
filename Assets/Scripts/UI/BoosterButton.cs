@@ -22,12 +22,7 @@ public class BoosterButton : MonoBehaviour
     public BoosterType currentType;
     private int boosterCount = 0;
     private int unlockLevel;
-
-    private void Awake()
-    {
-
-    }
-
+   
     /// <summary>
     /// Initialize booster with count and required level
     /// </summary>
@@ -35,74 +30,20 @@ public class BoosterButton : MonoBehaviour
     {
         unlockLevel = requiredLevel;
         boosterCount = initialCount;
-        UpdateBoosterState();
     }
 
-    /// <summary>
-    /// Update booster state based on count and player level
-    /// </summary>
-    public void UpdateBoosterState()
-    {
-        int currentLevel = GameManager.instance.GetCurrentLevel();
-        boosterCount = GameManager.instance.GetBoosterCount(currentType);
-        if (currentLevel < unlockLevel)
-        {
-            // Debug.Log("Lock");
-            SetState(BoosterState.Locked);
-        }
-        else if (boosterCount > 0)
-        {
-            // Debug.Log("Unlock");
-            SetState(BoosterState.Unlocked);
-        }
-        else if (boosterCount == 0)
-        {
-            // Debug.Log("Add More");
-            SetState(BoosterState.AddMore);
-        }
-    }
-
-    /// <summary>
-    /// Set new state for booster
-    /// </summary>
-    private void SetState(BoosterState newState)
-    {
-        currentState = newState;
-
-        btnUse.gameObject.SetActive(newState == BoosterState.Unlocked || newState == BoosterState.AddMore);
-        //btnUse.interactable = newState == BoosterState.Unlocked;
-
-        btnUnlock.gameObject.SetActive(newState == BoosterState.Locked);
-        itemCount.SetActive(newState == BoosterState.Unlocked);
-        txtCount.text = boosterCount.ToString();
-        addImage.SetActive(newState == BoosterState.AddMore);
-    }
 
     /// <summary>
     /// Use booster if there are remaining uses
     /// </summary>
     public void UseBooster()
     {
-        if (currentState != BoosterState.Unlocked) return;
         boosterCount = GameManager.instance.GetBoosterCount(currentType);
-        boosterCount--;
         GameManager.instance.SpendBooster(1, currentType);
         StartCoroutine(GameManager.instance.boardManager.ProcessCupQueue());
-        UpdateBoosterState();
         Debug.Log("Booster Used!");
     }
-
-    /// <summary>
-    /// Unlock booster when conditions are met
-    /// </summary>
-    private void UnlockBooster()
-    {
-        if (GameManager.instance.GetCurrentLevel() >= unlockLevel)
-        {
-            UpdateBoosterState();
-        }
-    }
-
+    
     /// <summary>
     /// Add more booster
     /// </summary>
@@ -110,7 +51,6 @@ public class BoosterButton : MonoBehaviour
     {
         GameManager.instance.MoreBooster(1, currentType);
         boosterCount = GameManager.instance.GetBoosterCount(currentType);
-        UpdateBoosterState();
 
     }
 

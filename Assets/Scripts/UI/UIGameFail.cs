@@ -9,7 +9,6 @@ public class UIGameFail : UIDialog
     private void Start()
     {
         btnReplay.onClick.AddListener(OnReplay);
-        btnClose.onClick.AddListener(OnClose);
     }
 
     private void OnReplay()
@@ -18,19 +17,4 @@ public class UIGameFail : UIDialog
         GameManager.instance.RestartLevel();
         HideWithEffect();
     }
-
-    private void OnClose()
-    {
-        SoundManager.Instance.PlaySFX(SoundManager.Instance.clickSfx);
-        HideWithEffect();
-        GameManager.instance.boardManager.ClearBoard();
-        GameManager.instance.uiManager.uiGame.Hide();
-        Hide();
-    }
-
-    public override void Show()
-    {
-        base.Show();
-    }
-
 }
