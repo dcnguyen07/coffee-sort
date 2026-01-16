@@ -1,13 +1,12 @@
 using UnityEngine;
 using UnityEngine.UI;
 using Managers;
+using TMPro;
 
 public class UIGameSuccess : UIDialog
 {
-    [SerializeField] private Text uiLevel;
-    [SerializeField] private Text uiTextReward;
+    [SerializeField] private TextMeshProUGUI uiLevel;
     [SerializeField] private Button btnContinue;
-    [SerializeField] private int rewardCoins = 90;
 
     public void InitUI()
     {

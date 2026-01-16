@@ -1,12 +1,12 @@
 using UnityEngine;
 using UnityEngine.UI;
 using Managers;
+using TMPro;
 
 public class UIGame : UIPanel
 {
     [Header("Level UI")]
-    public Text txtLevelNormal;
-    public Text txtLevelHard;
+    public TextMeshProUGUI txtLevelNormal;
     public GameObject uiLevelNormal;
     public GameObject uiLevelHard;
     public GameObject uiHardLevelPanel;
@@ -18,7 +18,7 @@ public class UIGame : UIPanel
     public BoosterButton btnUndo;
     
     [Header("Slot UI Elements")]
-    public Text slotCountText;
+    public TextMeshPro slotCountText;
 
     public void InitUI()
     {

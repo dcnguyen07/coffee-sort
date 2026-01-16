@@ -4,6 +4,7 @@ using System.Linq;
 using Objects;
 using UnityEngine;
 using Components;
+using TMPro;
 
 namespace Managers
 {
@@ -36,8 +37,8 @@ namespace Managers
 
         private readonly List<PlaceModel> activeTrays = new List<PlaceModel>();
 
-        public TextMesh cupNumText;
-        public TextMesh cupNumDesText;
+        public TextMeshPro cupNumText;
+        public TextMeshPro cupNumDesText;
         public Transform checkmarkImage;
 
         public Transform waitingArea;
